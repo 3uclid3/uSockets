@@ -29,6 +29,10 @@ if get_option('libuv')
     ld_args += '-luv'
 endif
 
+if not get_option('openssl') and not get_option('boringssl')
+    c_args += '-DLIBUS_NO_SSL'
+endif
+
 usockets = static_library(
     'uSockets',
     sources,
