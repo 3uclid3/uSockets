@@ -33,6 +33,8 @@ if not get_option('openssl') and not get_option('boringssl')
     c_args += '-DLIBUS_NO_SSL'
 endif
 
+deps = [dependency('zlib')]
+
 usockets = static_library(
     'uSockets',
     sources,
@@ -41,9 +43,12 @@ usockets = static_library(
     link_args: [ld_args],
     build_by_default: true,
     include_directories: ['src'],
+    dependencies: deps,
+
 )
 
 usockets_dep = declare_dependency(
     link_with: usockets,
     include_directories: ['src'],
+    dependencies: deps,
 )
