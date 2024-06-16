@@ -88,7 +88,7 @@ ifeq ($(WITH_BORINGSSL),1)
 	$(CXX) $(CXXFLAGS) -std=c++17 -flto -O3 -c src/crypto/*.cpp
 endif
 # Create a static library (try windows, then unix)
-	lib.exe /out:uSockets.a *.o || $(AR) rvs uSockets.a *.o
+	$(AR) rvs uSockets.a *.o
 
 # BoringSSL needs cmake and golang
 .PHONY: boringssl

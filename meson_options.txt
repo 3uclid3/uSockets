@@ -1,0 +1,6 @@
+option('boringssl', type: 'boolean', value: false)
+option('openssl', type: 'boolean', value: false)
+
+option('libuv', type: 'boolean', value: false)
+
+option('asan', type: 'boolean', value: false)
